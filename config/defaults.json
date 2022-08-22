@@ -1,0 +1,13 @@
+{
+  "env": "development",
+  "jwt": {
+    "secret": "some-secret-jwt-password",
+    "expiration": "2h"
+  },
+  "mongo": {
+    "url": "mongodb://mongodb:27017",
+    "db": "every-io-tech-challenge"
+  },
+  "port": 4000,
+  "passwordSalt": "some super secret password salt"
+}

@@ -1,0 +1,19 @@
+root = true
+
+[*]
+charset = utf-8
+trim_trailing_whitespace = true
+end_of_line = lf
+insert_final_newline = true
+
+[**.{ts,tsx,json,sass,sss,css}]
+indent_style = space
+indent_size = 2
+
+[src/**.{js,jsx}]
+indent_style = tab
+indent_size = 2
+
+[{*.sass, *.sss, *.css}]
+indent_style = space
+indent_size = 2

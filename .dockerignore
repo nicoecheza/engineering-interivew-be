@@ -1,0 +1,6 @@
+.dockerignorenode_modules
+.git
+coverage/
+Dockerfile
+config/*.json
+!config/defaults.json
