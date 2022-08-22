@@ -1,0 +1,33 @@
+version: '3'
+
+networks:
+  app-ntw:
+    driver: bridge
+
+services:
+  mongodb:
+    container_name: 'mongodb'
+    networks:
+      - app-ntw
+    image: mongo:5
+    ports:
+      - '27017:27017'
+    volumes:
+      - ../mongo-volume:/data/db
+
+  tech-challenge:
+    container_name: 'tech-challenge'
+    image: every.io-tech-challenge:latest
+    restart: 'always'
+    networks:
+      - app-ntw
+    depends_on:
+      - mongodb
+    ports:
+      - '80:4000'
+    environment:
+      - PORT=4000
+
+volumes:
+  db-data:
+    driver: local
