@@ -1,33 +1,38 @@
-# Getting Started with the Every.io engineering challenge.
+### Requirements for running locally (otherwise, just Docker)
+* Node v18
+* MongoDB (v4 or v5 should be ok)
 
-Thanks for taking the time to complete the Every.io code challenge. Don't worry, it's not too hard, and please do not spend more than an hour or two. We know you have lots of these to do, and it can be very time consuming.
+### Commands:
+* npm start (run app locally, you need Mongo installed)
+* npm run docker-start (builds and run app in Docker container on localhost:80)
+* npm run test
+* npm run build
+* npm run dev (uses nodemon)
 
-## The biggest factor will be your code:
+### Disclaimer:
+First time doing stuff with GraphQL, but I wanted to go for the extra credits.
+Tried to keep the boilerplate/conf to the minimum.
+I would have liked to have more time to invest in the challenge
+since there are some things I did not have time to research/learn.
 
-1. How readable, is your code.
-2. Scalability.
-3. Are there any bugs.
+Questions/unsolved issues that have raised during implementation:
 
-## Requirements
+* Resolvers args typings?
+* Where should business logic live? (resolvers/datasources)
+* How to share TS interfaces with Schemas?
+* Error handling status codes?
+* Write more tests (did the basic ones...)
 
-You will be creating an API for a task application.
+Also, made use of `dos-config`, a module I've been using for a while. Pretty much
+the same as `dotenv` but allows having a some `json` as typing structure for env vars
+that depends on `NODE_ENV` variable.
+So to run it for development, you will need a `config/development.json` file that includes:
+```json
+{
+  "mongo": {
+    "url": "mongodb://127.0.0.1:27017"
+  }
+}
 
-1. This application will have tasks with four different states:
-   - To do
-   - In Progress
-   - Done
-   - Archived
-2. Each task should contain: Title, Description, and what the current status is.
-3. A task can be archived and moved between columns, or statuses.
-4. The endpoint for tasks should only display tasks for those users who have authenticated and are authorized to view their tasks.
-
-## Ideal
-
-- Typescript
-- Tests
-- Dockerized Application
-
-## Extra credit
-
-- Apollo Server GraphQL
-- Logging
+```
+And for running the tests, you will need the same file, but named as `config/test.json` 👍

@@ -65,7 +65,7 @@ describe('users', () => {
     }).toArray();
 
     const error = getError(response);
-    expect(error.message).toBe('DUPLICATED_EMAIL');
+    expect(error.message).toBe('INVALID_CREDENTIALS');
     expect(users.length).toBe(1);
   });
 
